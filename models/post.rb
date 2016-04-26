@@ -1,6 +1,11 @@
 class PostTag < ActiveRecord::Base
-	has_many :posts
-	has_many :tags
+	belongs_to :post
+	belongs_to :tag
+end
+
+class Tag < ActiveRecord::Base
+	has_many :post_tags
+	has_many :posts, :through => :post_tags
 end
 
 class Post < ActiveRecord::Base
@@ -14,7 +19,3 @@ class Author < ActiveRecord::Base
 	has_many :posts
 end
 
-class Tag < ActiveRecord::Base
-	has_many :post_tags
-	has_many :posts, :through => :post_tags
-end
