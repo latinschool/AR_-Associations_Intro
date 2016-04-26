@@ -1,12 +1,13 @@
 require 'sinatra/activerecord/rake'
 require './controller'
 
-namespace :db do
-  desc "Truncate all tables"
-  task :truncate => :environment do
-    conn = ActiveRecord::Base.connection
-    tables = conn.execute("show tables").map { |r| r[0] }
-    tables.delete "schema_migrations"
-    tables.each { |t| conn.execute("TRUNCATE #{t}") }
-  end
-end
+# namespace :yolo do
+#   desc "Rebuild database"
+#   task :rebuild, [] => :environment do
+
+#     Rake::Task['db:drop'].execute
+#     Rake::Task['db:create'].execute
+#     Rake::Task['db:migrate'].execute
+#     Rake::Task['db:seed'].execute
+#   end
+# end
