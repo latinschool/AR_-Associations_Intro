@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160426134942) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
+    t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,14 +31,12 @@ ActiveRecord::Schema.define(version: 20160426134942) do
     t.string   "title"
     t.integer  "author_id"
     t.text     "content"
-    t.boolean  "published"
-    t.date     "published_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string   "name"
+    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
